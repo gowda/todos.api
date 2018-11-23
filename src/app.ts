@@ -6,7 +6,8 @@ import context from "express-http-context";
 import bodyParser from "body-parser";
 import * as conf from "./conf";
 import mkdirp from "mkdirp";
-import { router } from "./todos";
+import { TodoService } from "./todos.service";
+import * as todos from "./todos";
 
 mkdirp.sync(conf.logdir);
 
@@ -67,7 +68,9 @@ app.get('/', (req: Request, res: Response) => {
     .json({message: 'todos - the simplest todo list implementation'});
 });
 
-app.use('/todos', router);
+var todoService = new TodoService();
+var todosRouter = todos.createRouter(todoService);
+app.use('/todos', todosRouter);
 
 app.use('*', (req: Request, res: Response) => {
   logger.error(`Unknown path`);
