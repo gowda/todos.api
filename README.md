@@ -13,6 +13,11 @@ $ yarn install
 $ npm run build
 ```
 
+## Test
+```bash
+$ npm run test
+```
+
 ## Run
 ```bash
 $ node dist/app.js
