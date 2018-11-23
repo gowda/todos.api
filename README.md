@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/gowda/todos.js.svg?branch=master)](https://travis-ci.org/gowda/todos.js)
+
 # todos.js
 Todo list HTTP API implementation using [Express](https://github.com/expressjs/express)
 & [TypeScript](https://github.com/Microsoft/TypeScript)
