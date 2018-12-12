@@ -1,16 +1,12 @@
-import { Todo } from "./todo";
+import { ITodo } from "./todo";
 
-export class MemoryTodo implements Todo {
-  id: string;
-  title: string;
-  description: string;
-  done: Boolean;
-  created: Date;
-  updated: Date;
-
-  private generateId() {
-    return [new Date().getTime(), 42, Math.floor(Math.random() * 42)].join('');
-  }
+export class MemoryTodo implements ITodo {
+  public id: string;
+  public title: string;
+  public description: string;
+  public done: boolean;
+  public created: Date;
+  public updated: Date;
 
   constructor(data: any) {
     this.id = this.generateId();
@@ -21,8 +17,8 @@ export class MemoryTodo implements Todo {
     this.updated = new Date();
   }
 
-  update(data: any) {
-    var updated = false;
+  public update(data: any) {
+    let updated = false;
     if (data.title) {
       updated = true;
       this.title = data.title;
@@ -43,5 +39,9 @@ export class MemoryTodo implements Todo {
     }
 
     return this;
+  }
+
+  private generateId() {
+    return [new Date().getTime(), 42, Math.floor(Math.random() * 42)].join("");
   }
 }
