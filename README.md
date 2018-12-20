@@ -1,26 +1,4 @@
-[![Build Status](https://travis-ci.org/gowda/todos.js.svg?branch=master)](https://travis-ci.org/gowda/todos.js)
+# todos
+TODO list HTTP API implementations in different languages
 
-# todos.js
-Todo list HTTP API implementation using [Express](https://github.com/expressjs/express)
-& [TypeScript](https://github.com/Microsoft/TypeScript)
-
-## Build
-### Install dependencies
-```bash
-$ yarn install
-```
-
-### Compile
-```bash
-$ npm run build
-```
-
-## Test
-```bash
-$ npm run test
-```
-
-## Run
-```bash
-$ node dist/app.js
-```
+See README.md in implementation directory for details
