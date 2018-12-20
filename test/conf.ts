@@ -1,11 +1,12 @@
 import chai from "chai";
 import chaiHttp from "chai-http";
-import { app } from "../src/app";
+import { createApplication } from "../src/app";
 
 chai.should();
 chai.use(chaiHttp);
 
 export function createTestApp(): ChaiHttp.Agent {
+  const app = createApplication();
   return chai.request(app).keepOpen();
 }
 
