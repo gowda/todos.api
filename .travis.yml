@@ -1,2 +1,7 @@
 language: node_js
+node_js: "v8.11.3"
 cache: yarn
+before_install: cd typescript
+install: yarn install
+script: npm run test
+after_script: cd ..

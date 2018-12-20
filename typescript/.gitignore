@@ -1,0 +1,8 @@
+# Node modules
+node_modules
+
+# Default build destination
+/dist
+
+# Default log dir
+/logs
