@@ -1,7 +1,21 @@
-language: node_js
-node_js: "v8.11.3"
-cache: yarn
-before_install: cd typescript
-install: yarn install
-script: npm run test
-after_script: cd ..
+matrix:
+  include:
+    - language: node_js
+      node_js: "v8.11.3"
+      cache: yarn
+      before_install: cd typescript
+      install: yarn install
+      script: npm run test
+      after_script: cd ..
+
+    - language: scala
+      scala: 2.11.8
+      services: mysql
+      before_install:
+        - cd scala
+        - mysql -e 'CREATE DATABASE IF NOT EXISTS todos;'
+        - mysql -u root -e "CREATE USER 'todoer'@'localhost' IDENTIFIED BY 'todoer'"
+        - mysql -u root -e "GRANT ALL PRIVILEGES on todos.* TO 'todoer'@'localhost'"
+      script: sbt test
+      after_script: cd ..
+
